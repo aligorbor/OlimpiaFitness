@@ -2,7 +2,7 @@ package com.example.olimpiafitness
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.olimpiafitness.ui.main.MainFragment
+import com.example.olimpiafitness.ui.view.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
