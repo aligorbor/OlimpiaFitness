@@ -13,12 +13,12 @@
         android:layout_marginTop="@dimen/text_margin"
         android:layout_marginEnd="@dimen/text_margin"
         android:textAlignment="center"
-
+        android:textSize="@dimen/text_size_subject"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="пятница, 28 апреля" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_subject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,6 +27,8 @@
         android:layout_marginEnd="@dimen/margin_card"
         app:cardCornerRadius="@dimen/card_radius"
         app:cardElevation="@dimen/card_elev"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/stroke_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_dofw">
@@ -43,9 +45,9 @@
 
                 <ImageView
                     android:id="@+id/image_chevron"
-                    android:layout_width="10dp"
+                    android:layout_width="@dimen/chevron_width"
                     android:layout_height="match_parent"
-                    android:src="@drawable/chevron_background"
+                    tools:src="@drawable/chevron_background"
                     android:visibility="visible"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -75,17 +77,40 @@
                     tools:text="17:55" />
 
                 <TextView
+                    android:id="@+id/lesson_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin_max"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    app:layout_constraintStart_toEndOf="@id/image_chevron"
+                    app:layout_constraintTop_toBottomOf="@id/end_time"
+                    tools:text="1ч. 30мин." />
+
+                <ImageView
+                    android:id="@+id/image_coach"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:src="@drawable/outline_person_24"
+                    android:visibility="visible"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintStart_toEndOf="@id/end_time"
+                    app:layout_constraintTop_toTopOf="@id/end_time"
+                    app:layout_constraintBottom_toBottomOf="@id/end_time"
+                    />
+
+
+                <TextView
                     android:id="@+id/item_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/text_margin"
                     android:textAppearance="?attr/textAppearanceListItem"
-                    android:textSize="@dimen/text_size_subject"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@id/start_time"
                     app:layout_constraintTop_toTopOf="@id/start_time"
                     app:layout_constraintBottom_toBottomOf="@id/start_time"
-                    tools:text="Literature" />
+                    tools:text="BOXING" />
 
                 <TextView
                     android:id="@+id/item_coach"
@@ -93,14 +118,39 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/text_margin"
                     android:textAppearance="?attr/textAppearanceListItem"
-                    app:layout_constraintStart_toEndOf="@id/end_time"
-                    app:layout_constraintTop_toTopOf="@id/end_time"
-                    app:layout_constraintBottom_toBottomOf="@id/end_time"
-                    tools:text="Teacher: Mrs Smith" />
+                    app:layout_constraintStart_toEndOf="@id/image_coach"
+                    app:layout_constraintTop_toTopOf="@id/image_coach"
+                    app:layout_constraintBottom_toBottomOf="@id/image_coach"
+                    tools:text="Ivanov Ivan" />
+
+                <ImageView
+                    android:id="@+id/image_place"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:src="@drawable/outline_place_24"
+                    android:visibility="visible"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintStart_toEndOf="@id/lesson_duration"
+                    app:layout_constraintTop_toTopOf="@id/lesson_duration"
+                    app:layout_constraintBottom_toBottomOf="@id/lesson_duration"
+                    />
+
+                <TextView
+                    android:id="@+id/item_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintStart_toEndOf="@id/image_place"
+                    app:layout_constraintTop_toTopOf="@id/image_place"
+                    app:layout_constraintBottom_toBottomOf="@id/image_place"
+                    tools:text="Big hall" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

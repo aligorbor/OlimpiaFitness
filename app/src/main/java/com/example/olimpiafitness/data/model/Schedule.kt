@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Schedule(
     @SerializedName("trainers")
-    val trainers: Array<Trainer?>,
+    val trainers: Array<Trainer>,
     @SerializedName("tabs")
     val tabs: Array<Tab?>,
     @SerializedName("lessons")

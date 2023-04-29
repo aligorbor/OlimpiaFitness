@@ -2,11 +2,14 @@ package com.example.olimpiafitness.ui.viewmodel
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.olimpiafitness.data.model.Lesson
 import com.example.olimpiafitness.databinding.ItemLessonBinding
 import com.example.olimpiafitness.databinding.ItemLessonNextBinding
+import com.example.olimpiafitness.utils.durationOfLesson
+import com.example.olimpiafitness.utils.setBitMapWithColor
 
 class LessonsAdapter(
     private val values: ArrayList<Lesson>
@@ -26,27 +29,38 @@ class LessonsAdapter(
         if (getItemViewType(position) == TYPE_FIRST) {
             with(holder as ViewHolderFirst) {
                 name.text = item.name
-                coach.text = item.coachId
+                coach.text = item.coach
                 startTime.text = item.startTime
                 endTime.text = item.endTime
-                dOfW.text = item.date
+                dOfW.text = item.toStrDate
+                chevron.setImageBitmap(setBitMapWithColor(item.color))
+                place.text = item.place
+                duration.text = durationOfLesson(item.startTime, item.endTime)
             }
         } else {
             with(holder as ViewHolderNext) {
                 name.text = item.name
-                coach.text = item.coachId
+                coach.text = item.coach
                 startTime.text = item.startTime
                 endTime.text = item.endTime
+                chevron.setImageBitmap(setBitMapWithColor(item.color))
+                place.text = item.place
+                duration.text = durationOfLesson(item.startTime, item.endTime)
             }
         }
     }
 
     override fun getItemCount(): Int = values.size
 
-    override fun getItemViewType(position: Int): Int {
-        // return if (values[position].subjectObj.obligatory) TYPE_OBLIGATORY else TYPE_OPTIONAL
-        return TYPE_FIRST
-    }
+    override fun getItemViewType(position: Int): Int =
+        if (position == 0) {
+            TYPE_FIRST
+        } else if (values[position].dOfW != values[position - 1].dOfW) {
+            TYPE_FIRST
+        } else {
+            TYPE_NEXT
+        }
+
 
     fun addLessons(lessons: List<Lesson>) {
         this.values.apply {
@@ -62,6 +76,9 @@ class LessonsAdapter(
         val startTime: TextView = binding.startTime
         val endTime: TextView = binding.endTime
         val dOfW: TextView = binding.textDofw
+        val chevron: ImageView = binding.imageChevron
+        val place: TextView = binding.itemPlace
+        val duration: TextView = binding.lessonDuration
     }
 
     inner class ViewHolderNext(binding: ItemLessonNextBinding) :
@@ -70,6 +87,9 @@ class LessonsAdapter(
         val coach: TextView = binding.itemCoach
         val startTime: TextView = binding.startTime
         val endTime: TextView = binding.endTime
+        val chevron: ImageView = binding.imageChevron
+        val place: TextView = binding.itemPlace
+        val duration: TextView = binding.lessonDuration
     }
 
     companion object {

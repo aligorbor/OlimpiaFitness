@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/lessons_dest"
+        android:icon="@drawable/outline_lessons_24"
+        android:title="@string/lessons" />
+    <item
+        android:id="@+id/applications_dest"
+        android:icon="@drawable/outline_applicat_24"
+        android:title="@string/applications" />
+    <item
+        android:id="@+id/add_dest"
+        android:icon="@drawable/baseline_add_circle_outline_24"
+        android:title="@string/to_add" />
+    <item
+        android:id="@+id/chat_dest"
+        android:icon="@drawable/outline_chat_24"
+        android:title="@string/chat" />
+    <item
+        android:id="@+id/more_dest"
+        android:icon="@drawable/outline_more_horiz_24"
+        android:title="@string/more" />
+</menu>

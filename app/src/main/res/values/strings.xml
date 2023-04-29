@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">OlimpiaFitness</string>
+    <string name="app_name">Расписание</string>
+    <string name="schedule">Расписание</string>
+    <string name="lessons">Занятия</string>
+    <string name="applications">Заявки</string>
+    <string name="to_add">Добавить</string>
+    <string name="chat">Чат</string>
+    <string name="more">Еще</string>
+
 </resources>
